@@ -1,0 +1,43 @@
+/* Full-page stylish background */
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #1e3c72, #2a5298, #4a00e0, #8e2de2); 
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  color: white;
+}
+
+/* Smooth animated gradient */
+@keyframes gradientShift {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+/* Song Card Glass Effect */
+.card-song {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-radius: 15px;
+  padding: 15px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  color: white;
+}
+
+.card-song:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.card-song img {
+  border-radius: 12px;
+}
+/* App.css */
+.app-main {
+  flex: 1;
+  padding: 22px;
+  overflow: auto;
+  /* Remove the previous padding-bottom: 120px; rule */
+}

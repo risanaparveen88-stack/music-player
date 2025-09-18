@@ -1,0 +1,185 @@
+:root {
+  --bg: linear-gradient(135deg, #7b2ff7, #f107a3);
+  --card: rgba(255, 255, 255, 0.85); /* Light glass card */
+  --muted: #6b7280; /* Neutral muted gray text */
+  --accent: #8b5cf6; /* Violet accent (premium feel) */
+  --text: #111827; /* Deep slate text for readability */
+  --soft: rgba(139, 92, 246, 0.15); /* Subtle violet hover */
+  --icon: #6b7280; /* Icon color muted */
+  --icon-hover: #8b5cf6; /* Violet icon hover */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body, html, #root {
+  height: 100%;
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Layout */
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+.app-sidebar {
+  width: 240px;
+  padding: 20px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(240, 248, 255, 0.5));
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(12px);
+}
+
+.brand h3 {
+  margin: 0;
+  color: var(--accent);
+}
+
+.brand small {
+  color: var(--muted);
+}
+
+.nav-links {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nav-links a {
+  color: var(--text);
+  text-decoration: none;
+  padding: 8px;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.nav-links a:hover {
+  background: var(--soft);
+}
+
+.premium-card {
+  margin-top: auto;
+  padding: 10px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.5));
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Main content */
+.app-main {
+  flex: 1;
+  padding: 22px;
+  overflow: auto;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.section h4 {
+  margin-bottom: 12px;
+}
+
+/* Song cards */
+.row-cards {
+  display: flex;
+  gap: 12px;
+  overflow: auto;
+  padding-bottom: 8px;
+}
+
+.card-song {
+  min-width: 220px;
+  background: var(--card);
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  backdrop-filter: blur(10px);
+}
+
+.card-song img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.song-meta {
+  margin-top: 8px;
+  color: var(--text);
+}
+
+.song-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  align-items: center;
+  color: var(--text);
+}
+
+button {
+  color: var(--text);
+}
+
+button.btn-primary {
+  background-color: var(--accent);
+  color: white;
+}
+
+button.btn-outline-secondary {
+  background-color: transparent;
+  color: var(--text);
+  border: 1px solid var(--text);
+}
+
+.small-muted {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* Player Bar */
+.player-fixed {
+  position: fixed;
+  left: 260px;
+  right: 20px;
+  bottom: 18px;
+  background: var(--card);
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  backdrop-filter: blur(10px);
+}
+
+@media (max-width:900px) {
+  .app-sidebar { display: none; }
+  .player-fixed { left: 12px; right: 12px; }
+}
+
+/* Floating Action Button */
+.fab {
+  position: fixed;
+  bottom: 80px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background: var(--accent);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 28px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
